@@ -1,0 +1,19 @@
+<div class="text-center pt-4 pb-4">
+  <h1>welcome to <%= @list.name %></h1>
+  <p>choisit un film a commenter</p>
+</div>
+
+<div class="d-flex card pb-4 pt-4 container-fluid text-center">
+  <%= simple_form_for [@list, @bookmark] do |f| %>
+    <%= f.input :comment %>
+    <%= f.association :movie %>
+    <%= f.button :submit, class: "mt-4 btn btn-outline-info"%>
+  <% end %>
+
+  <% @bookmarks.each do |book| %>
+    <p class="card mt-4"><%= book.comment %></p>
+  <% end %>
+
+</div>
+
+<%= link_to 'Back to lists', lists_path, class: "mt-4 btn btn-outline-info"%>

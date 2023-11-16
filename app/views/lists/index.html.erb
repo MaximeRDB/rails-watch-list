@@ -1,0 +1,6 @@
+<h1>Bienvenue dans la LIST</h1>
+<p></p>
+<% @lists.each do |list|%>
+<p><%= link_to "#{list.name}", list, class: 'mt-4 btn btn-outline-success'%></p>
+<%end%>
+<%= link_to 'Créée une list', new_list_path, class: "mt-4 btn btn-outline-success"%>

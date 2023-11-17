@@ -21,7 +21,7 @@ class ListsController < ApplicationController
   def destroy
     @list = List.find(params[:id])
     @list.destroy!
-    redirect_to lists_path, notice: "Bravo tu as détruit t'as liste."
+    redirect_to root_path, notice: "Bravo tu as détruit t'as liste."
   end
 
   def index

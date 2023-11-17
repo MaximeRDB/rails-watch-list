@@ -10,7 +10,7 @@ class BookmarksController < ApplicationController
     @bookmark = Bookmark.new(params_bookmark)
     @bookmark.list = @list
     if @bookmark.save!
-      redirect_to lists_path, notice: "Bravo tu as crée un nouveau bookmark"
+      redirect_to root_path, notice: "Bravo tu as crée un nouveau bookmark"
     else
       render :new, notice: "Try again"
     end
@@ -19,7 +19,7 @@ class BookmarksController < ApplicationController
   def destroy
     @bookmark = Bookmark.find(params[:id])
     @bookmark.destroy!
-    redirect_to lists_path, notice: "Bravo tu as détruit le Bookmark."
+    redirect_to root_path, notice: "Bravo tu as détruit le Bookmark."
   end
 
   def index

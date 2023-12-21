@@ -1,3 +1,8 @@
+  <h1>Coucou les filles</h1>
+
+
+
+
 <div class="text-center pt-4 pb-4">
   <h1>welcome to <%= @list.name %></h1>
   <p>choisit un film a commenter</p>
@@ -7,11 +12,15 @@
   <%= simple_form_for [@list, @bookmark] do |f| %>
     <%= f.input :comment %>
     <%= f.association :movie %>
+    <%= f.input :image, as: :file %>
     <%= f.button :submit, class: "mt-4 btn btn-outline-info"%>
   <% end %>
 
   <% @bookmarks.each do |book| %>
     <p class="card mt-4"><%= book.comment %></p>
+    <% if book.image.attached? %>
+      <%= cl_image_tag book.image.key, height: 150, width: 200, crop: :fill, class: "mt-4 text-center"%>
+    <% end %>
   <% end %>
 
 </div>
